@@ -16,6 +16,9 @@
 
 package library.base;
 
+import com.github.obsessive.library.R;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -28,24 +31,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.github.obsessive.library.R;
+import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 import library.eventbus.EventCenter;
 import library.loading.VaryViewHelperController;
 import library.netstatus.NetChangeObserver;
 import library.netstatus.NetStateReceiver;
 import library.netstatus.NetUtils;
-import library.utils.CommonUtils;
-import library.utils.SmartBarUtils;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
-
-import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
+import library.util.CommonUtils;
 
 /**
- * Author:  Tau.Chen
- * Email:   1076559197@qq.com | tauchen1990@gmail.com
- * Date:    2015/3/9.
- * Description:
+ * Project Name:com.cn.reading
+ * File Name: Reading
+ * Date:15/8/28下午4:2008
+ * blog:http://blog.csdn.net/qq718799510?viewmode=contents
+ * Copyright (c) 2015, zhuxiaohao All Rights Reserved.
+ * 所有activity 父类
  */
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
@@ -117,7 +118,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         if (isBindEventBusHere()) {
             EventBus.getDefault().register(this);
         }
-        SmartBarUtils.hide(getWindow().getDecorView());
         setTranslucentStatus(isApplyStatusBarTranslucency());
 
         mContext = this;
@@ -126,7 +126,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
         mScreenDensity = displayMetrics.density;
         mScreenHeight = displayMetrics.heightPixels;
         mScreenWidth = displayMetrics.widthPixels;
@@ -143,7 +142,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
                 super.onNetConnected(type);
                 onNetworkConnected(type);
             }
-
             @Override
             public void onNetDisConnect() {
                 super.onNetDisConnect();
@@ -152,7 +150,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         };
 
         NetStateReceiver.registerObserver(mNetChangeObserver);
-
         initViewsAndEvents();
     }
 

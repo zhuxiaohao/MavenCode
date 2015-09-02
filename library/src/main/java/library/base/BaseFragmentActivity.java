@@ -16,6 +16,7 @@
 
 package library.base;
 
+import com.github.obsessive.library.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import android.content.Context;
@@ -37,72 +38,54 @@ import library.loading.VaryViewHelperController;
 import library.netstatus.NetChangeObserver;
 import library.netstatus.NetStateReceiver;
 import library.netstatus.NetUtils;
-import library.utils.CommonUtils;
-import library.utils.SmartBarUtils;
+import library.util.CommonUtils;
 
 /**
- * Author:  Tau.Chen
- * Email:   1076559197@qq.com | tauchen1990@gmail.com
- * Date:    2015/3/9.
- * Description:
+ * Project Name:com.cn.reading
+ * File Name: Reading
+ * Date:15/8/28下午4:2008
+ * blog:http://blog.csdn.net/qq718799510?viewmode=contents
+ * Copyright (c) 2015, zhuxiaohao All Rights Reserved.
+ * 父类 fragmentActivity
  */
 public abstract class BaseFragmentActivity extends FragmentActivity {
-
-    /**
-     * Log tag
-     */
+    /** log */
     protected static String TAG_LOG = null;
-
-    /**
-     * Screen information
-     */
+    /** Screen information */
     protected int mScreenWidth = 0;
     protected int mScreenHeight = 0;
     protected float mScreenDensity = 0.0f;
-
-    /**
-     * context
-     */
+    /** context */
     protected Context mContext = null;
-
-    /**
-     * network status
-     */
+    /** network status */
     protected NetChangeObserver mNetChangeObserver = null;
-
-    /**
-     * loading view controller
-     */
+    /** loading view controller*/
     private VaryViewHelperController mVaryViewHelperController = null;
-
-    /**
-     * overridePendingTransition mode
-     */
+    /**overridePendingTransition mode*/
     public enum TransitionMode {
         LEFT, RIGHT, TOP, BOTTOM, SCALE, FADE
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.left_in, com.github.obsessive.library.R.anim.left_out);
+                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
                     break;
                 case RIGHT:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.right_in, com.github.obsessive.library.R.anim.right_out);
+                    overridePendingTransition(R.anim.right_in, R.anim.right_out);
                     break;
                 case TOP:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.top_in, com.github.obsessive.library.R.anim.top_out);
+                    overridePendingTransition(R.anim.top_in, R.anim.top_out);
                     break;
                 case BOTTOM:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.bottom_in, com.github.obsessive.library.R.anim.bottom_out);
+                    overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     break;
                 case SCALE:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.scale_in, com.github.obsessive.library.R.anim.scale_out);
+                    overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
                     break;
                 case FADE:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.fade_in, com.github.obsessive.library.R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     break;
             }
         }
@@ -116,7 +99,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         if (isBindEventBusHere()) {
             EventBus.getDefault().register(this);
         }
-        SmartBarUtils.hide(getWindow().getDecorView());
         setTranslucentStatus(isApplyStatusBarTranslucency());
 
         mContext = this;
@@ -151,7 +133,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         };
 
         NetStateReceiver.registerObserver(mNetChangeObserver);
-
         initViewsAndEvents();
     }
 
@@ -180,22 +161,22 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.left_in, com.github.obsessive.library.R.anim.left_out);
+                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
                     break;
                 case RIGHT:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.right_in, com.github.obsessive.library.R.anim.right_out);
+                    overridePendingTransition(R.anim.right_in, R.anim.right_out);
                     break;
                 case TOP:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.top_in, com.github.obsessive.library.R.anim.top_out);
+                    overridePendingTransition(R.anim.top_in, R.anim.top_out);
                     break;
                 case BOTTOM:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.bottom_in, com.github.obsessive.library.R.anim.bottom_out);
+                    overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     break;
                 case SCALE:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.scale_in, com.github.obsessive.library.R.anim.scale_out);
+                    overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
                     break;
                 case FADE:
-                    overridePendingTransition(com.github.obsessive.library.R.anim.fade_in, com.github.obsessive.library.R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     break;
             }
         }
@@ -356,7 +337,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 
     /**
      * show toast
-     *
      * @param msg
      */
     protected void showToast(String msg) {
@@ -391,7 +371,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         if (null == mVaryViewHelperController) {
             throw new IllegalArgumentException("You must return a right target view for loading");
         }
-
         if (toggle) {
             mVaryViewHelperController.showEmpty(msg, onClickListener);
         } else {
@@ -408,7 +387,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         if (null == mVaryViewHelperController) {
             throw new IllegalArgumentException("You must return a right target view for loading");
         }
-
         if (toggle) {
             mVaryViewHelperController.showError(msg, onClickListener);
         } else {

@@ -21,7 +21,7 @@ import com.github.obsessive.library.R;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import library.utils.CommonUtils;
+import library.util.CommonUtils;
 
 public class VaryViewHelperController {
 

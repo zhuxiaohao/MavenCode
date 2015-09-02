@@ -18,11 +18,10 @@ package library.base;
 
 import android.os.Bundle;
 import android.view.View;
-
-import library.swipeback.SwipeBackActivityBase;
-import library.swipeback.SwipeBackActivityHelper;
-import library.swipeback.SwipeBackLayout;
-import library.swipeback.Utils;
+import library.widgets.swipeback.SwipeBackActivityBase;
+import library.widgets.swipeback.SwipeBackActivityHelper;
+import library.widgets.swipeback.SwipeBackLayout;
+import library.widgets.swipeback.Utils;
 
 /**
  * Author:  Tau.Chen

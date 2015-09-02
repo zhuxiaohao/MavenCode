@@ -8,8 +8,11 @@
 */
 
 package library.util;
-import android.content.Context;  
-import android.util.TypedValue;  
+
+import android.content.Context;
+import android.content.res.Configuration;
+import android.util.TypedValue;
+
 /**
  * ClassName:DensityUtils <br/>
  * Function: TODO ADD FUNCTION. <br/>
@@ -35,9 +38,9 @@ public class DensityUtils
      * @param val 
      * @return 
      */  
-    public static int dp2px(android.content.Context context, float dpVal)
+    public static int dp2px(Context context, float dpVal)
     {  
-        return (int) android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_DIP,
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dpVal, context.getResources().getDisplayMetrics());  
     }  
   
@@ -48,9 +51,9 @@ public class DensityUtils
      * @param val 
      * @return 
      */  
-    public static int sp2px(android.content.Context context, float spVal)
+    public static int sp2px(Context context, float spVal)
     {  
-        return (int) android.util.TypedValue.applyDimension(android.util.TypedValue.COMPLEX_UNIT_SP,
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
                 spVal, context.getResources().getDisplayMetrics());  
     }  
   
@@ -61,7 +64,7 @@ public class DensityUtils
      * @param pxVal 
      * @return 
      */  
-    public static float px2dp(android.content.Context context, float pxVal)
+    public static float px2dp(Context context, float pxVal)
     {  
         final float scale = context.getResources().getDisplayMetrics().density;  
         return (pxVal / scale);  
@@ -74,10 +77,114 @@ public class DensityUtils
      * @param pxVal 
      * @return 
      */  
-    public static float px2sp(android.content.Context context, float pxVal)
+    public static float px2sp(Context context, float pxVal)
     {  
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);  
-    }  
+    }
+
+
+    private static final float DOT_FIVE = 0.5f;
+
+
+    /**
+     * dip to px
+     *
+     * @param context
+     * @param dip
+     * @return
+     */
+    public static int dip2px(Context context, float dip) {
+        float density = getDensity(context);
+        return (int) (dip * density + DensityUtils.DOT_FIVE);
+    }
+
+    /**
+     * px to dip
+     *
+     * @param context
+     * @param px
+     * @return
+     */
+    public static int px2dip(Context context, float px) {
+        float density = getDensity(context);
+        return (int) (px / density + DOT_FIVE);
+    }
+
+    private static android.util.DisplayMetrics sDisplayMetrics;
+
+    /**
+     * get screen width
+     *
+     * @param context
+     * @return
+     */
+    public static int getDisplayWidth(Context context) {
+        initDisplayMetrics(context);
+        return sDisplayMetrics.widthPixels;
+    }
+
+    /**
+     * get screen height
+     *
+     * @param context
+     * @return
+     */
+    public static int getDisplayHeight(Context context) {
+        initDisplayMetrics(context);
+        return sDisplayMetrics.heightPixels;
+    }
+
+    /**
+     * get screen density
+     *
+     * @param context
+     * @return
+     */
+    public static float getDensity(Context context) {
+        initDisplayMetrics(context);
+        return sDisplayMetrics.density;
+    }
+
+
+    /**
+     * get screen density dpi
+     *
+     * @param context
+     * @return
+     */
+    public static int getDensityDpi(Context context) {
+        initDisplayMetrics(context);
+        return sDisplayMetrics.densityDpi;
+    }
+
+    /**
+     * init display metrics
+     *
+     * @param context
+     */
+    private static synchronized void initDisplayMetrics(Context context) {
+        sDisplayMetrics = context.getResources().getDisplayMetrics();
+    }
+
+    /**
+     * is landscape
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isLandscape(Context context) {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    /**
+     * is portrait
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isPortrait(Context context) {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
+    }
   
 } 
 

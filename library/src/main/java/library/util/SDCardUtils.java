@@ -19,10 +19,6 @@ package library.util;
  * @since    JDK 1.6
  * @see 	SD卡相关辅助类 
  */
-import java.io.File;
-
-import android.os.Environment;
-import android.os.StatFs;
 
 public class SDCardUtils {
 	private SDCardUtils() {

@@ -9,6 +9,10 @@
 package library.controller;
 
 
+import java.util.List;
+
+import android.app.Activity;
+
 /**
  * ClassName:ActivityController <br/>
  * Function: TODO ADD FUNCTION. <br/>
@@ -24,7 +28,7 @@ public class ActivityController {
     /**
      * 实列
      */
-    public static java.util.List<android.app.Activity> list = new java.util.ArrayList<android.app.Activity>();
+    public static List<Activity> list = new java.util.ArrayList<Activity>();
 
     /**
      *
@@ -34,7 +38,7 @@ public class ActivityController {
      * @param activity
      * @since JDK 1.6
      */
-    public static void addActivity(android.app.Activity activity) {
+    public static void addActivity(Activity activity) {
         list.add(activity);
     }
 
@@ -46,7 +50,7 @@ public class ActivityController {
      * @param activity
      * @since JDK 1.6
      */
-    public static void removeActivity(android.app.Activity activity) {
+    public static void removeActivity(Activity activity) {
         list.remove(activity);
     }
 
@@ -58,7 +62,7 @@ public class ActivityController {
      * @since JDK 1.6
      */
     public static void finshAll() {
-        for (android.app.Activity activity : list) {
+        for (Activity activity : list) {
             if (!activity.isFinishing()) {
                 activity.finish();
             }

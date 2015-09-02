@@ -1,7 +1,5 @@
 package library.service;
 
-import java.io.Serializable;
-
 /**
  * 
  * ClassName: FileNameRule <br/>

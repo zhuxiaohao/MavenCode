@@ -43,13 +43,15 @@ package library.base;
 
 import java.util.LinkedList;
 import java.util.List;
-import android.app.Activity;
 
+import android.app.Activity;
 /**
- * Author:  Tau.Chen
- * Email:   1076559197@qq.com | tauchen1990@gmail.com
- * Date:    2015/3/9.
- * Description:
+ * Project Name:com.cn.reading
+ * File Name: Reading
+ * Date:15/8/28下午4:2008
+ * blog:http://blog.csdn.net/qq718799510?viewmode=contents
+ * Copyright (c) 2015, zhuxiaohao All Rights Reserved.
+ * 所有activity 管理
  */
 public class BaseAppManager {
 
@@ -69,24 +71,43 @@ public class BaseAppManager {
         return instance;
     }
 
+    /**
+     *
+     * @return 返回activity size
+     */
     public int size() {
         return mActivities.size();
     }
 
+    /**
+     * 获取当前 activity
+     * @return
+     */
     public synchronized Activity getForwardActivity() {
         return size() > 0 ? mActivities.get(size() - 1) : null;
     }
 
+    /**
+     *  添加 activity
+     * @param activity 要添加的 activity
+     */
     public synchronized void addActivity(Activity activity) {
         mActivities.add(activity);
     }
 
+    /**
+     * 移除 activity
+     * @param activity 要移除 activity
+     */
     public synchronized void removeActivity(Activity activity) {
         if (mActivities.contains(activity)) {
             mActivities.remove(activity);
         }
     }
 
+    /**
+     * 清除所有 activity
+     */
     public synchronized void clear() {
         for (int i = mActivities.size() - 1; i > -1; i--) {
             Activity activity = mActivities.get(i);
@@ -96,6 +117,9 @@ public class BaseAppManager {
         }
     }
 
+    /**
+     * 清除最上面的 activity
+     */
     public synchronized void clearToTop() {
         for (int i = mActivities.size() - 2; i > -1; i--) {
             Activity activity = mActivities.get(i);

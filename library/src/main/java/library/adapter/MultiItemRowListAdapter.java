@@ -16,6 +16,10 @@
 
 package library.adapter;
 
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.view.View;
@@ -25,10 +29,6 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MultiItemRowListAdapter implements WrapperListAdapter {
     private final ListAdapter mAdapter;

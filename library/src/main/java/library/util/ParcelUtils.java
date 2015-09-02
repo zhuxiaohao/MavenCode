@@ -1,12 +1,5 @@
 package library.util;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
  * 
  * ClassName: ParcelUtils <br/>

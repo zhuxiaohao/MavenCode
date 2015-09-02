@@ -1,15 +1,5 @@
 package library.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import org.apache.http.client.ClientProtocolException;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.Message;
-import android.view.ViewGroup.LayoutParams;
-
 /**
  * ClassName: DetailImageLoader <br/>
  * Function: TODO ADD FUNCTION. <br/>

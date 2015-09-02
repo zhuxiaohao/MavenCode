@@ -1,15 +1,5 @@
 package library.util;
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Enumeration;
-
-import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.telephony.TelephonyManager;
-
 /**
  * ClassName: DeviceUtils <br/>
  * Function: TODO ADD FUNCTION. <br/>

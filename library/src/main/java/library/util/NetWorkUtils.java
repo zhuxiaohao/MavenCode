@@ -1,18 +1,5 @@
 package library.util;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-
 /**
  * 
  * ClassName: NetWorkUtils <br/>

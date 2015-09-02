@@ -16,34 +16,33 @@
 
 package library.base;
 
+import com.github.obsessive.library.R;
+
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
-import com.github.obsessive.library.R;
+import butterknife.ButterKnife;
 import library.eventbus.EventCenter;
 import library.netstatus.NetUtils;
-import library.utils.CommonUtils;
+import library.util.CommonUtils;
 import library.widgets.BrowserLayout;
 
-import butterknife.ButterKnife;
-
 /**
- * Author:  Tau.Chen
- * Email:   1076559197@qq.com | tauchen1990@gmail.com
- * Date:    15/7/24
- * Description:
+ * Project Name:com.cn.reading
+ * File Name: Reading
+ * Date:15/8/28下午4:2008
+ * blog:http://blog.csdn.net/qq718799510?viewmode=contents
+ * Copyright (c) 2015, zhuxiaohao All Rights Reserved.
+ * WebActivity 父类
  */
 public class BaseWebActivity extends BaseSwipeBackCompatActivity {
 
     public static final String BUNDLE_KEY_URL = "BUNDLE_KEY_URL";
     public static final String BUNDLE_KEY_TITLE = "BUNDLE_KEY_TITLE";
     public static final String BUNDLE_KEY_SHOW_BOTTOM_BAR = "BUNDLE_KEY_SHOW_BOTTOM_BAR";
-
     private String mWebUrl = null;
     private String mWebTitle = null;
     private boolean isShowBottomBar = true;
-
     private Toolbar mToolBar = null;
     private BrowserLayout mBrowserLayout = null;
 
@@ -60,9 +59,7 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
     }
 
     @Override
-    protected void onEventComming(EventCenter eventCenter) {
-
-    }
+    protected void onEventComming(EventCenter eventCenter) {}
 
     @Override
     protected View getLoadingTargetView() {
@@ -72,28 +69,23 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
     @Override
     protected void initViewsAndEvents() {
         setSystemBarTintDrawable(getResources().getDrawable(R.drawable.sr_primary));
-
         mToolBar = ButterKnife.findById(this, R.id.common_toolbar);
         mBrowserLayout = ButterKnife.findById(this, R.id.common_web_browser_layout);
-
         if (null != mToolBar) {
             setSupportActionBar(mToolBar);
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
         if (!CommonUtils.isEmpty(mWebTitle)) {
             setTitle(mWebTitle);
         } else {
             setTitle("网页");
         }
-
         if (!CommonUtils.isEmpty(mWebUrl)) {
             mBrowserLayout.loadUrl(mWebUrl);
         } else {
             showToast("获取URL地址失败");
         }
-
         if (!isShowBottomBar) {
             mBrowserLayout.hideBrowserController();
         } else {
@@ -102,15 +94,10 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
     }
 
     @Override
-    protected void onNetworkConnected(NetUtils.NetType type) {
-
-    }
-
+    protected void onNetworkConnected(NetUtils.NetType type) {}
     @Override
     protected void onNetworkDisConnected() {
-
     }
-
     @Override
     protected boolean isApplyStatusBarTranslucency() {
         return true;

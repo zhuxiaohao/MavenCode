@@ -1,7 +1,5 @@
 package library.util;
 
-import java.util.Random;
-
 /**
  * 
  * ClassName: RandomUtils <br/>

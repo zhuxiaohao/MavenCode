@@ -9,10 +9,6 @@
 
 package library.util;
 
-import android.content.Context;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-
 /**
  * ClassName:KeyBoardUtils <br/>
  * Function: TODO ADD FUNCTION. <br/>

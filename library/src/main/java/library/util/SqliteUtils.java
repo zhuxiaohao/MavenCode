@@ -1,8 +1,5 @@
 package library.util;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-
 /**
  * 
  * ClassName: SqliteUtils <br/>

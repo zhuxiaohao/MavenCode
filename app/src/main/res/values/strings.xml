@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">日阅</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">扫码</string>
+    <string name="qr_code">生成二维码</string>
     <string name="action_settings">Settings</string>
 </resources>

@@ -1,12 +1,6 @@
 package library.util;
 
-import java.lang.reflect.Method;
-
 import android.app.DownloadManager;
-import android.app.DownloadManager.Request;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Build;
 
 /**
  * ClassName: DownloadManagerPro <br/>

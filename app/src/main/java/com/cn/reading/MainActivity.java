@@ -1,9 +1,14 @@
 package com.cn.reading;
 
+import com.cn.reading.zxing.activity.CaptureActivity;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+
 /**
  * Project Name:com.cn.reading
  * File Name: Reading
@@ -11,33 +16,52 @@ import android.view.MenuItem;
  * blog:http://blog.csdn.net/qq718799510?viewmode=contents
  * Copyright (c) 2015, zhuxiaohao All Rights Reserved.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  implements OnClickListener{
 
+    Button btn1,btn2;
+    ImageView imageView;
+    android.widget.TextView resultTexyView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btn1=(android.widget.Button)findViewById(com.cn.reading.R.id.btn1);
+        btn2=(android.widget.Button)findViewById(com.cn.reading.R.id.btn2);
+        imageView=(ImageView)findViewById(R.id.imageView);
+        resultTexyView=(android.widget.TextView)findViewById(R.id.resultTexyView);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v
+     *         The view that was clicked.
+     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onClick(android.view.View v) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (btn1==v){
+            startActivityForResult(new Intent(MainActivity.this, CaptureActivity.class),0);
         }
+        if (btn2==v){
+            String str="www.baidu.com";
+            try {
+                android.graphics.Bitmap qrCodeBitmap= com.cn.reading.zxing.encoding.EncodingHandler.createQRCode(str, 350);
+                imageView.setImageBitmap(qrCodeBitmap);
+            } catch (com.google.zxing.WriterException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-        return super.onOptionsItemSelected(item);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, android.content.Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+       if (resultCode==RESULT_OK){
+           Bundle bundle=data.getExtras();
+           String scanResult=bundle.getString("result");
+           resultTexyView.setText(scanResult);
+       }
     }
 }

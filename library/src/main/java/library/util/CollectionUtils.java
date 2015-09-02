@@ -1,9 +1,5 @@
 package library.util;
 
-import java.util.Collection;
-
-import android.text.TextUtils;
-
 /**
  * 
  * ClassName: CollectionUtils <br/>

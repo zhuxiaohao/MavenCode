@@ -1,12 +1,5 @@
 package library.util;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import android.annotation.SuppressLint;
-import android.util.Log;
-
 /**
  * ClassName: DateTimeUtils <br/>
  * Function: TODO ADD FUNCTION. <br/>

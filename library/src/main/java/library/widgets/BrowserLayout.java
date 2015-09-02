@@ -32,7 +32,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import library.utils.CommonUtils;
+import library.util.CommonUtils;
 
 /**
  * Author:  Tau.Chen

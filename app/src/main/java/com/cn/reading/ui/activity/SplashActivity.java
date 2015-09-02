@@ -7,5 +7,5 @@ package com.cn.reading.ui.activity;
  * blog:http://blog.csdn.net/qq718799510?viewmode=contents
  * Copyright (c) 2015, zhuxiaohao All Rights Reserved.
  */
-public class SplashActivity {
+public class SplashActivity  {
 }

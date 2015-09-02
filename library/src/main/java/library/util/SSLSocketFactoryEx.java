@@ -1,20 +1,5 @@
 package library.util;
 
-import java.io.IOException;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-import org.apache.http.conn.ssl.SSLSocketFactory;
-
 public class SSLSocketFactoryEx extends org.apache.http.conn.ssl.SSLSocketFactory {
 
     javax.net.ssl.SSLContext sslContext = javax.net.ssl.SSLContext.getInstance("TLS");

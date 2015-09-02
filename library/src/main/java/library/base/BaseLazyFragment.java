@@ -34,7 +34,7 @@ import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import library.eventbus.EventCenter;
 import library.loading.VaryViewHelperController;
-import library.utils.CommonUtils;
+import library.util.CommonUtils;
 
 /**
  * Author:  Tau.Chen

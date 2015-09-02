@@ -1,7 +1,5 @@
 package library.util;
 
-import java.security.MessageDigest;
-
 /**
  * ClassName: DigestUtils <br/>
  * Function: TODO ADD FUNCTION. <br/>

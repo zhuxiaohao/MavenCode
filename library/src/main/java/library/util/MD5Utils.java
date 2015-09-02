@@ -1,7 +1,5 @@
 package library.util;
 
-import java.security.MessageDigest;
-
 /**
  * 
  * ClassName: MD5Utils <br/>

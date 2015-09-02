@@ -16,7 +16,6 @@
 
 package library.blur;
 
-import android.graphics.Bitmap;
 
 public class ImageBlur {
 

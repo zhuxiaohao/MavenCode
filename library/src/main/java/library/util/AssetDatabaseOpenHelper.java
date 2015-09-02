@@ -1,11 +1,5 @@
 package library.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
 /**

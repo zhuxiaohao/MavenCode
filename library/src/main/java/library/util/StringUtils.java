@@ -1,14 +1,6 @@
 package library.util;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import android.annotation.SuppressLint;
-import android.content.ClipData;
-import android.content.Context;
 
 /**
  * ClassName: StringUtils <br/>
