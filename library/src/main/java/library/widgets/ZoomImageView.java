@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 
 /**
  * ClassName:ZoomImageView <br/>
@@ -27,7 +28,7 @@ import android.view.MotionEvent;
  * @since JDK 1.6
  * @see 自由缩放的 view
  */
-public class ZoomImageView extends android.view.View {
+public class ZoomImageView extends View {
 
 	/**
 	 * 初始化状态常量
